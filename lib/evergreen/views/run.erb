@@ -1,4 +1,5 @@
 <script type="text/javascript" src="<%= url("/jasmine/jasmine.js") %>"></script>
+<script type="text/javascript" src="<%= url("/resources/jasmine-wkreporter.js") %>"></script>
 <script type="text/javascript" src="<%= url("/jasmine/jasmine-html.js") %>"></script>
 <script type="text/javascript" src="<%= url("/resources/json2.js") %>"></script>
 <script type="text/javascript" src="<%= url("/resources/run.js") %>"></script>
@@ -35,6 +36,7 @@
       var jasmineExecute = function() {
         var jasmineEnv = jasmine.getEnv();
         jasmineEnv.addReporter(new jasmine.TrivialReporter());
+        jasmineEnv.addReporter(new jasmine.WebkitReporter());
         jasmineEnv.addReporter(new Evergreen.ReflectiveReporter());
         jasmineEnv.execute();
       };
